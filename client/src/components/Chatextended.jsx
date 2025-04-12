@@ -69,6 +69,8 @@ const Chatextended = ({currentUser, Socket, Email,setlastMessage}) => {
         senderId: Email,
         receiverId: currentUser.Email
       });
+      setMessages(prev => [ ...prev, { message: newMessage.trim(), sender: Email, timestamp: new Date().toISOString() }]);
+      
       setNewMessage('');
     }
   };
@@ -109,7 +111,7 @@ const Chatextended = ({currentUser, Socket, Email,setlastMessage}) => {
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
           onKeyUp={handleTyping}
-          onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+          onKeyDown={(e) => e.key === 'Enter' && handleSend()}
           className='w-[90%] h-full rounded-bl-md text-black placeholder:text-black placeholder:text-xs caret-white outline-none border-b-1 px-2 text-sm pb-1' 
           placeholder='Type your message here...'
         />
