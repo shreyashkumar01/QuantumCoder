@@ -1,4 +1,4 @@
-
+###We reccomend to use it with 2 deviced
 ## Setup Instructions
 
 1. Clone the repository
