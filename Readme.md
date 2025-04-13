@@ -1,3 +1,4 @@
+###due to some error server file not upload it"s repo is "https://github.com/shivam-070208/quantumserverrepo/tree/backend"
 0kZ_YxITan78d1HiqiHWNI-CjwM
 ###We reccomend to use it with 2 deviced
 ## Setup Instructions
