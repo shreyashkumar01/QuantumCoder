@@ -4,6 +4,7 @@ import ChatAvailable from "./ChatAvailable";
 import Chatextended from "./Chatextended";
 import Community from "./Community";
 
+
 const Chat = ({
   communitygroups,
   Socket,
@@ -36,6 +37,7 @@ const Chat = ({
   }, []);
   return (
     <div className="w-full flex pt-9 gap-2">
+      
       {!chatWindow && (
         <div className="w-[360px] h-[80vh] justify-between max-[436px]:w-[100%] max-[780]:w-[330px] flex flex-col">
           <nav className="max-w-[full]  bg-zinc-800 border-b-blue-600 py-1  border-[1.7px] boder- flex pb-1  justify-center rounded text-[0.6rem]">
@@ -65,7 +67,7 @@ const Chat = ({
             </div>
           </nav>
           {communitygroups ? (
-            <Community lastMessage={lastMessage} />
+            <Community friendOnline={friendOnline} Socket={Socket} Email={Email}/>
           ) : (
             <ChatAvailable
               friendOnline={friendOnline} lastMessage={lastMessage}

@@ -76,7 +76,10 @@ const User = ({Email, Userdata, Socket,setfriendOnline}) => {
            <div key={index} className="user-card flex justify-between items-center p-3 border-b-1  border-b-white">
              <div className="flex items-center gap-3">
                <img src={user.profilephoto} className="w-10 h-10 rounded-full object-cover" alt="" />
+               <div className='flex flex-col'>
                <span className="font-semibold text-white">{user.Name}</span>
+               <p className='text-xs text-zinc-500'>{user.UserName}</p>
+               </div>
              </div>
              {!Requesteduser.find(req => req.Email === user.Email) && 
               <button 
@@ -93,7 +96,10 @@ const User = ({Email, Userdata, Socket,setfriendOnline}) => {
            <div key={index} className="user-card flex justify-between items-center p-3 border-b-1 border-b-white">
              <div className="flex items-center gap-3">
                <img src={user.profilephoto} className="w-10 h-10 rounded-full object-cover" alt="" />
+               <div className='flex flex-col'>
                <span className="font-semibold text-white">{user.Name}</span>
+               <p className='text-xs text-zinc-500'>{user.UserName}</p>
+               </div>
              </div>
              <span className="text-gray-500">Pending</span>
            </div>
@@ -103,7 +109,10 @@ const User = ({Email, Userdata, Socket,setfriendOnline}) => {
            <div key={index} className="user-card flex justify-between items-center p-3 border-b-1  border-b-white">
              <div className="flex items-center gap-3">
                <img src={user.profilephoto} className="w-10 h-10 rounded-full object-cover" alt="" />
+               <div className='flex flex-col'>
                <span className="font-semibold text-white">{user.Name}</span>
+               <p className='text-xs text-zinc-500'>{user.UserName}</p>
+               </div>
              </div>
              <button 
                onClick={() => acceptFriendRequest(user)}

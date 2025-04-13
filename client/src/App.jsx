@@ -8,7 +8,8 @@ import axios from 'axios'
 import {io} from 'socket.io-client';
 import User from './components/User'
 import Caller from './components/Caller'
-
+import Home from './components/Home'
+import EditProfile from './components/EditProfile'
 
 
 const App = () => {
@@ -59,7 +60,7 @@ const App = () => {
       setfriendOnline(data.PrivateUseronline)
      
 })
-
+  
     setSocket(newSocket);
 
     // Cleanup function
@@ -79,6 +80,14 @@ const App = () => {
           path='/Signup'  
           element={isAllow ? <Navigate to='/' /> :<SignUp setisAllow={setisAllow} setEmail={setEmail} Socket={Socket} setUser={setUser}  />} 
         />
+        <Route 
+          path='/home'  
+          element={isAllow ? <Navigate to='/' /> :<Home   />} 
+        />
+          <Route 
+          path='/Profile'  
+          element={<EditProfile Email={Email} Socket={Socket}  />} 
+        />
         {/* <Route path='/Check' element={<Chat setisAllow={setisAllow} setEmail Socket={Socket} setUser={setUser} />} /> */}
          <Route 
           path='/login' 
@@ -86,19 +95,19 @@ const App = () => {
         />
         <Route 
           path='/' 
-          element={!isAllow ? <Navigate to='/Signup' /> : <Chat communitygroups={false} Email={Email} friendOnline={friendOnline} friendoffline={friendoffline}  Socket={Socket}/>} 
+          element={!isAllow ? <Navigate to='/home' /> : <Chat communitygroups={false} Email={Email} friendOnline={friendOnline} friendoffline={friendoffline}  Socket={Socket}/>} 
         />
         <Route 
           path='/Community' 
-          element={!isAllow ? <Navigate to='/Signup' /> : <Chat communitygroups={true} Email={Email}  Socket={Socket} />} 
+          element={!isAllow ? <Navigate to='/home' /> : <Chat communitygroups={true} Email={Email}  Socket={Socket} />} 
         />
         <Route 
           path='/user' 
-          element={!isAllow ? <Navigate to='/Signup' /> : <User Socket={Socket} Userdata={Userdata} setfriendOnline={setfriendOnline} Email={Email} />} 
+          element={!isAllow ? <Navigate to='/home' /> : <User Socket={Socket} Userdata={Userdata} setfriendOnline={setfriendOnline} Email={Email} />} 
         />
          <Route 
           path='/Call' 
-          element={!isAllow ? <Navigate to='/Signup' /> : <Caller Socket={Socket} friendOnline={friendOnline} Email={Email} />} 
+          element={!isAllow ? <Navigate to='/home' /> : <Caller Socket={Socket} friendOnline={friendOnline} Email={Email} />} 
         />
       </Routes>
     </div>
